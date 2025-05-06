@@ -56,32 +56,31 @@ export default function Login() {
               </div>
             </div>
           </div>
+        </form>
+        <div className={S.boxLembrar}>
+          <a href="#">Esqueceu a senha?</a>
+        </div>
 
-          <div className={S.boxLembrar}>
-            <a href="#">Esqueceu a senha?</a>
-          </div>
-
-          <div className={S.Concluir}>
-            {/* <nav>
+        <div className={S.Concluir}>
+          {/* <nav>
               <Link to="/">Login</Link>
               <Link to="Registro">Registro</Link>
             </nav> */}
-            <ul>
-              <li className={S.btnEntrar}>
-                <button className={S.entrar} type="submit">
-                  Entrar
-                </button>
-              </li>
-              <li className={S.btnCriar}>
-                <button className={S.criar} type="button">
-                  <Link to="Registro" className={S.link}>
-                    Criar conta
-                  </Link>
-                </button>
-              </li>
-            </ul>
-          </div>
-        </form>
+          <ul>
+            <li className={S.btnEntrar}>
+              <button className={S.entrar} type="submit">
+                Entrar
+              </button>
+            </li>
+            <li className={S.btnCriar}>
+              <button className={S.criar} type="button">
+                <Link to="Registro" className={S.link}>
+                  Criar conta
+                </Link>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

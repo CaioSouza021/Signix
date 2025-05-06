@@ -13,9 +13,8 @@
 
 // efeito glass
 .boxConteudo {
-  width: 800px;
-  height: 590px;
-
+  width: 60vw;
+  height: 80%;
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 50, 0.75);
   border-radius: 20px;
@@ -103,42 +102,46 @@ i {
 }
 
 .boxConteudo .boxLembrar {
-  margin: 15px;
+  display: flex;
+  justify-content: end;
   text-align: center;
+  align-items: center;
+  width: 95%;
+  height: 50px;
 }
 
 .boxConteudo .boxLembrar a {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  font-size: 20px;
+  font-size: 0.9rem;
 }
 
 .boxConteudo .Concluir {
-  height: 14vh;
+  height: 36%;
   width: 100%;
 }
 
 .Concluir ul {
   width: 100%;
   height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .Concluir li {
-  margin-bottom: 10px;
-  height: 100px;
-  width: 400px;
+  height: 40%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
 }
 .Concluir li button {
   border-radius: 10px;
   border: solid 2px rgba(255, 255, 255, 0.15);
   width: 100%;
-  color: #fff;
 
+  color: #fff;
   text-align: center;
   display: block;
   cursor: pointer;
@@ -146,21 +149,20 @@ i {
 
 ul li .entrar {
   font-size: 2em;
-
+  height: 85%;
+  width: 28vw;
   background: linear-gradient(90deg, #8e2de2 0%, #4a00e0 100%);
 }
 
 ul li .criar {
   background-color: transparent;
+  width: 24vw;
   font-size: 2em;
-  width: 100%;
-  height: 100%;
+
+  height: 80%;
 }
 
 ul li .criar .link {
   color: #fff;
   width: 100%;
-  height: 100%;
 }
-
-// animação de carregamento

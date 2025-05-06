@@ -1,9 +1,11 @@
-import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+import { Link } from "react-router-dom";
 import "./login.module.scss";
 import S from "./login.module.scss";
 
-export default function login() {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,39 +18,69 @@ export default function login() {
     <div className={S.container}>
       <div className={S.boxConteudo}>
         <form onSubmit={handleSubmit}>
-          <h1>acesse o sistema</h1>
-          <div className={S.inputPrincipal}>
-            <input
-              type="email"
-              placeholder="E-mail"
-              required
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <i class="bi bi-person-circle"></i>
-          </div>
-          <div className={S.inputPrincipal}>
-            <input
-              type="password"
-              placeholder="Senha"
-              required
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <i class="bi bi-lock-fill"></i>
+          <div className={S.titulo}>
+            <h1>SIGNIX</h1>
           </div>
 
-          <div class="box-lembrar">
-            <label>
-              <input type="checkbox" />
-              Lembre de mim
-            </label>
+          <div className={S.boxForm}>
+            <h3>Email</h3>
+            <div className={S.inputPrincipal1}>
+              <i class="bi bi-envelope"></i>
+              <input
+                type="email"
+                placeholder="E-mail"
+                required
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className={S.senha}>
+            <div className={S.boxForm}>
+              <h3>Senha</h3>
+              <div className={S.inputPrincipal}>
+                <i class="bi bi-lock"></i>
+                <input
+                  type="password"
+                  placeholder="Senha"
+                  required
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+
+                <div className={S.olhoSenha}>
+                  <i class="bi bi-eye"></i>
+                </div>
+                <div className={S.olhoSemSenha}>
+                  <i class="bi bi-eye-slash"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={S.boxLembrar}>
             <a href="#">Esqueceu a senha?</a>
           </div>
-          <div className="box-registro">
-            <p>
-              Não possui uma conta? <a href="#">Registrar</a>
-            </p>
+
+          <div className={S.Concluir}>
+            {/* <nav>
+              <Link to="/">Login</Link>
+              <Link to="Registro">Registro</Link>
+            </nav> */}
+            <ul>
+              <li className={S.btnEntrar}>
+                <button className={S.entrar} type="submit">
+                  Entrar
+                </button>
+              </li>
+              <li className={S.btnCriar}>
+                <button className={S.criar} type="button">
+                  <Link to="Registro" className={S.link}>
+                    Criar conta
+                  </Link>
+                </button>
+              </li>
+            </ul>
           </div>
-          <button>Entrar</button>
         </form>
       </div>
     </div>

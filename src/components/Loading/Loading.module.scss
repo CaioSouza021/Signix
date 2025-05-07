@@ -1,3 +1,4 @@
+// estrelas cadentes
 .starsWrapper {
   position: absolute;
   top: 0;
@@ -12,34 +13,38 @@
   background-repeat: no-repeat;
 }
 
+// Estilo base de uma estrela cadente
 .shootingStar {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 50%; //Começa do meio da tela
   width: 2px;
-  height: 100px;
-  background: linear-gradient(-45deg, white, transparent);
+  height: 100px; //rastro
+  background: linear-gradient(-45deg, white, transparent); //efeito de rastro
   transform: rotate(45deg);
   animation: shoot 4s linear infinite;
   opacity: 0;
 }
 
+//Variação atraso de 1 segundo
 .shootingStarDelay1 {
   animation-delay: 1s;
 }
-
+// Variação atraso de 3 segundos e outra posição
 .shootingStarDelay2 {
   animation-delay: 2s;
   top: 30%;
   left: 70%;
 }
 
+// Variação atraso de 2 segundos e outra posição
 .shootingStarDelay3 {
   animation-delay: 3s;
   top: 60%;
   left: 20%;
 }
 
+//disparo da estrela cadente
 @keyframes shoot {
   0% {
     transform: translate(0, 0) rotate(45deg);

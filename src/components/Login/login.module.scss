@@ -2,9 +2,11 @@
 .container {
   height: 100vh;
   width: 100vw;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   background-image: url(../../assets/BGPrincipal.jpg);
   background-position: center;
   background-size: cover;
@@ -15,6 +17,7 @@
 .boxConteudo {
   width: 60vw;
   height: 80%;
+
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 50, 0.75);
   border-radius: 20px;
@@ -25,6 +28,7 @@
   height: 10vh;
   color: #fff;
 }
+
 .titulo {
   width: 100%;
   height: 100%;
@@ -58,22 +62,25 @@
 .inputPrincipal1,
 .inputPrincipal {
   height: 60px;
-  border-radius: 10px;
+  gap: 20px;
+
   align-items: center;
   display: flex;
-  gap: 20px;
+
+  border-radius: 10px;
   border: solid 2px rgba(255, 255, 255, 0.15);
 }
 
 .inputPrincipal input,
 .inputPrincipal1 input {
   width: 100%;
-  background-color: transparent;
   outline: none;
   font-size: 16px;
+
   color: none;
   border: none;
   color: #fff;
+  background-color: transparent;
 }
 
 .inputPrincipal input::placeholder,
@@ -82,38 +89,44 @@
   color: #fff;
 }
 i {
-  text-align: right;
   width: 10%;
   font-size: 17px;
+
+  text-align: right;
   color: rgba(255, 255, 255, 0.7);
 }
 .inputPrincipal .olhoSenha {
   width: 10%;
+
   align-items: center;
   justify-content: start;
+
   display: none;
 }
 
 .inputPrincipal .olhoSemSenha {
   width: 10%;
+
   align-items: center;
   justify-content: start;
+
   display: block;
 }
 
 .boxConteudo .boxLembrar {
-  display: flex;
-  justify-content: end;
-  text-align: center;
-  align-items: center;
   width: 95%;
   height: 50px;
+
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: end;
 }
 
 .boxConteudo .boxLembrar a {
-  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .boxConteudo .Concluir {
@@ -138,31 +151,76 @@ i {
 }
 .Concluir li button {
   border-radius: 10px;
-  border: solid 2px rgba(255, 255, 255, 0.15);
   width: 100%;
+  height: 100%;
 
-  color: #fff;
   text-align: center;
   display: block;
   cursor: pointer;
+
+  border: solid 2px rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
 
 ul li .entrar {
-  font-size: 2em;
   height: 85%;
   width: 28vw;
+  font-size: 2em;
   background: linear-gradient(90deg, #8e2de2 0%, #4a00e0 100%);
 }
 
 ul li .criar {
-  background-color: transparent;
   width: 24vw;
-  font-size: 2em;
-
   height: 80%;
+  font-size: 2em;
+  background-color: transparent;
 }
 
 ul li .criar .link {
-  color: #fff;
   width: 100%;
+  color: #fff;
+}
+
+// Animação para os botões
+.entrar,
+.criar {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  // Define a cor do texto para branco e o peso da fonte para 600
+  color: white;
+  font-weight: 600;
+
+  // animação de fundo
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    // efeito da esquerda pra direita
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: all 0.5s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  // efeito de clique
+  &:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 12px #aa00ff;
+  }
+
+  // sombra ao redor do botão
+  &:hover {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  }
 }

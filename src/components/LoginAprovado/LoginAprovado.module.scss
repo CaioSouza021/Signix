@@ -1,0 +1,87 @@
+.loginSuccess {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0a0a1f 40%, #000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease-in-out;
+
+  h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-top: 30px;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: showText 1s ease-in-out forwards 1s;
+    text-shadow: 0 0 15px #a374ff;
+  }
+}
+
+.planetWrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+
+.planet {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 30%, #a374ff, #4c1d95);
+  border-radius: 50%;
+  box-shadow: 0 0 30px #a374ff80;
+  animation: rotatePlanet 6s linear infinite;
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -100px;
+  border: 2px solid #ffffff22;
+  border-radius: 50%;
+  transform: rotateX(65deg);
+  animation: spinRing 4s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showText {
+  to {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes rotatePlanet {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinRing {
+  0% {
+    transform: rotateX(65deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(65deg) rotateZ(360deg);
+  }
+}

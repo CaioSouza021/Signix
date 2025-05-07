@@ -1,8 +1,7 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import LoginAprovado from "../LoginAprovado/LoginAprovado";
 import "bootstrap-icons/font/bootstrap-icons.css";
-
-import { Link } from "react-router-dom";
-import "./login.module.scss";
 import S from "./login.module.scss";
 
 export default function Login() {
@@ -12,6 +11,22 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("Dados enviados: " + username + " - " + password);
+  };
+
+  const [showSuccess, setShowSuccess] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    if (username.trim() === "" || password.trim() === "") {
+      alert("Preencha todos os campos.");
+      return;
+    }
+
+    // Simulação de sucesso com formulário preenchido
+    setShowSuccess(true);
+    setTimeout(() => {
+      navigate("#");
+    }, 3000);
   };
 
   return (
@@ -62,13 +77,9 @@ export default function Login() {
         </div>
 
         <div className={S.Concluir}>
-          {/* <nav>
-              <Link to="/">Login</Link>
-              <Link to="Registro">Registro</Link>
-            </nav> */}
           <ul>
             <li className={S.btnEntrar}>
-              <button className={S.entrar} type="submit">
+              <button className={S.entrar} type="submit" onClick={handleLogin}>
                 Entrar
               </button>
             </li>
@@ -82,6 +93,7 @@ export default function Login() {
           </ul>
         </div>
       </div>
+      {showSuccess && <LoginAprovado />}
     </div>
   );
 }

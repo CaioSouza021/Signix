@@ -113,49 +113,50 @@ export default function Registro() {
 
             <div className={S.radioContainer}>
               <label className={S.formLabel}>Gênero</label>
-
-              <div className={S.generInputs}>
-                <div className={S.radioBox}>
-                  <input
-                    type="radio"
-                    name="gender"
-                    id="female"
-                    className={S.formControl}
-                    value="female"
-                  />
-                  <label htmlFor="female" className={S.formLabel}>
-                    Feminino
-                  </label>
+              <div className={S.teste1}>
+                <div className={S.genderInputs}>
+                  <div className={S.radioBox}>
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="female"
+                      className={S.formControl}
+                      value="female"
+                    />
+                    <label htmlFor="female" className={S.formLabel}>
+                      Feminino
+                    </label>
+                  </div>
                 </div>
-              </div>
 
-              <div className={S.generInputs}>
-                <div className={S.radioBox}>
-                  <input
-                    type="radio"
-                    name="gender"
-                    id="male"
-                    className={S.formControl}
-                    value="male"
-                  />
-                  <label htmlFor="male" className={S.formLabel}>
-                    Masculino
-                  </label>
+                <div className={S.genderInputs}>
+                  <div className={S.radioBox}>
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="male"
+                      className={S.formControl}
+                      value="male"
+                    />
+                    <label htmlFor="male" className={S.formLabel}>
+                      Masculino
+                    </label>
+                  </div>
                 </div>
-              </div>
 
-              <div className={S.generInputs}>
-                <div className={S.radioBox}>
-                  <input
-                    type="radio"
-                    name="gender"
-                    id="outher"
-                    className={S.formControl}
-                    value="outher"
-                  />
-                  <label htmlFor="female" className={S.formLabel}>
-                    Outro
-                  </label>
+                <div className={S.genderInputs}>
+                  <div className={S.radioBox}>
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="outher"
+                      className={S.formControl}
+                      value="outher"
+                    />
+                    <label htmlFor="female" className={S.formLabel}>
+                      Outro
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>

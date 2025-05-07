@@ -1,16 +1,184 @@
+.btnSair {
+  height: 25px;
+  width: 30px;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  background-color: purple;
+
+  transition: 0.2s ease;
+}
+.btnSair i {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnDefault {
+  height: 80px;
+  width: 80%;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-size: 2rem;
+  font-weight: 500;
+
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  background-color: purple;
+
+  transition: 0.2s ease;
+}
+
+// efeito Hover nos botões
+
+.btnDefault:hover,
+.btnSair:hover {
+  background-color: #5c09d9;
+}
+
+// inicio da pag
 .BoxConteudo {
+  width: 100vw;
+  min-height: 100vh;
+
   background-image: url(../../assets/BGPrincipal.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
+main {
+  height: 100%;
+  gap: 50px;
+  padding: 60px 50px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 50, 0.75);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+main .formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formHeader h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #f2f2f2;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 2px;
+  border-radius: 30px;
+  background-color: aqua;
+  left: 0;
+  bottom: 0;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+form .inputContainer {
+  display: grid;
+  gap: 25px;
+}
+.inputContainer .inputBox .formLabel {
+  font-size: 17px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.inputContainer .inputBox .inputField {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.inputBox .inputField i {
+  display: flex;
+  align-items: center;
+  width: 30px;
+  height: 20px;
+  color: #000;
+}
+
+.inputBox .inputField .formControl {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.formControl:focus {
+  outline: none;
+}
+
+.inputBox .inputField:focus-within {
+  outline: 2px solid #6366f1;
+}
+// remove a cor de fundo quando é selecionado a opção salva de algum form
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  color: #000;
+}
+
+.radioContainer {
+  grid-column: span 2;
+}
+.formLabel {
   color: #fff;
 }
-
-.formContainer .btnSair {
-  background-color: transparent;
+.teste1 {
+  color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.radioContainer .genderInputs {
+  width: 25%;
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 20px;
 }

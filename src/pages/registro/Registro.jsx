@@ -1,20 +1,62 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import S from "./Registro.module.scss";
 import "bootstrap-icons/font/bootstrap-icons.css";
+// biblioteca de calendario
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-// Registro.jsx
 export default function Registro() {
+  // utilizando a biblioteca de calendario
+  const [birthdate, setBirthdate] = useState(null);
+
+  // deixar a senha visivel:
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  // monstrar a senha pelo icon
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+  // confirmação de senha para que ambas sejam parecidas
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  false;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setPasswordError("As senhas não coincidem.");
+    } else {
+      setPasswordError("");
+      alert("Conta criada com sucesso!");
+    }
+  };
+
   return (
-    <div className={S.BoxConteudo}>
+    <div className={S.BoxConteudoRegistro}>
       <main className={S.formContainer}>
         <div className={S.formHeader}>
           <h1 className={S.formTitle}>Criar conta</h1>
+
           <button className={S.btnSair}>
-            <i class="bi bi-box-arrow-in-right"></i>
+            <Link to="/">
+              <i class="bi bi-box-arrow-in-right"></i>{" "}
+            </Link>
           </button>
         </div>
 
-        <form action="">
+        <form
+          action=""
+          onSubmit={handleSubmit}
+          className={S.FormularioRegistro}
+        >
           <div className={S.inputContainer}>
             <div className={S.inputBox}>
               <label htmlFor="Name" className={S.formLabel}>
@@ -27,6 +69,7 @@ export default function Registro() {
                   id="firstname"
                   className={S.formControl}
                   placeholder=" insira o nome"
+                  required
                 />
                 <i class="bi bi-person"></i>
               </div>
@@ -43,6 +86,7 @@ export default function Registro() {
                   id="lastname"
                   className={S.formControl}
                   placeholder=" insira o sobrenome"
+                  required
                 />
                 <i class="bi bi-person"></i>
               </div>
@@ -53,12 +97,12 @@ export default function Registro() {
                 Nascimento
               </label>
               <div className={S.inputField}>
-                <input
-                  type="date"
-                  name="birthdate"
-                  id="birthdate"
+                <DatePicker
+                  selected={birthdate}
+                  onChange={(date) => setBirthdate(date)}
+                  showYearPicker
+                  dateFormat="dd/MM/yyyy"
                   className={S.formControl}
-                  placeholder=" insira o sobrenome"
                 />
               </div>
             </div>
@@ -74,6 +118,7 @@ export default function Registro() {
                   id="email"
                   className={S.formControl}
                   placeholder="exemplo@gmail.com"
+                  required
                 />
                 <i class="bi bi-envelope"></i>
               </div>
@@ -85,13 +130,20 @@ export default function Registro() {
               </label>
               <div className={S.inputField}>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   id="password"
                   className={S.formControl}
                   placeholder="insira a senha"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
-                <i class="bi bi-eye-slash"></i>
+                <i
+                  className={`bi ${showPassword ? "bi-eye" : "bi-eye-slash"}`}
+                  style={{ cursor: "pointer" }}
+                  onClick={togglePasswordVisibility}
+                ></i>
               </div>
             </div>
 
@@ -101,15 +153,37 @@ export default function Registro() {
               </label>
               <div className={S.inputField}>
                 <input
-                  type="password"
+                  type={showConfirmPassword ? "text" : "password"}
                   name="confirm_password"
                   id="confirm_password"
                   className={S.formControl}
                   placeholder="confirme a senha"
+                  required
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
-                <i class="bi bi-eye-slash"></i>
+                <i
+                  className={`bi ${
+                    showConfirmPassword ? "bi-eye" : "bi-eye-slash"
+                  }`}
+                  style={{ cursor: "pointer" }}
+                  onClick={toggleConfirmPasswordVisibility}
+                ></i>
               </div>
             </div>
+
+            {/* Mensagem de erro, se houver */}
+            {passwordError && (
+              <p
+                style={{
+                  color: "red",
+                  marginTop: "-10px",
+                  fontWeight: 700,
+                }}
+              >
+                {passwordError}
+              </p>
+            )}
 
             <div className={S.radioContainer}>
               <label className={S.formLabel}>Gênero</label>

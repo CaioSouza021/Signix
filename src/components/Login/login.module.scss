@@ -1,6 +1,6 @@
 // Tela configurada no meio
 .container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 
   display: flex;
@@ -15,8 +15,8 @@
 
 // efeito glass
 .boxConteudo {
-  width: 60vw;
-  height: 80%;
+  width: 50vw;
+  height: 100%;
 
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 50, 0.75);
@@ -50,7 +50,7 @@
 }
 
 .container .boxForm {
-  width: 70%;
+  width: 80%;
   height: 100px;
   margin: 15px auto;
 }
@@ -61,7 +61,7 @@
 
 .inputPrincipal1,
 .inputPrincipal {
-  height: 60px;
+  height: 70%;
   gap: 20px;
 
   align-items: center;
@@ -125,12 +125,12 @@ i {
 
 .boxConteudo .boxLembrar a {
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.6);
 }
 
 .boxConteudo .Concluir {
-  height: 36%;
+  height: 210px;
   width: 100%;
 }
 

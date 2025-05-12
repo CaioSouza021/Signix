@@ -95,22 +95,12 @@ i {
   text-align: right;
   color: rgba(255, 255, 255, 0.7);
 }
+
 .inputPrincipal .olhoSenha {
-  width: 10%;
-
+  padding-right: 10px;
+  cursor: pointer;
   align-items: center;
   justify-content: start;
-
-  display: none;
-}
-
-.inputPrincipal .olhoSemSenha {
-  width: 10%;
-
-  align-items: center;
-  justify-content: start;
-
-  display: block;
 }
 
 .boxConteudo .boxLembrar {
@@ -256,5 +246,27 @@ ul li .criar .link {
     width: 100%;
     gap: 20px;
     padding: 5px;
+  }
+  .boxConteudo .boxLembrar {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .boxConteudo .boxLembrar a {
+    font-size: 0.8rem;
+  }
+
+  .Concluir .btnEntrar .entrar {
+    width: 200px;
+    height: 70px;
+
+    font-size: 2rem;
+  }
+
+  .Concluir .btnCriar .criar {
+    width: 150px;
+    height: 60px;
+    font-size: 1rem;
   }
 }

@@ -7,25 +7,26 @@ import S from "./login.module.scss";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert("Dados enviados: " + username + " - " + password);
-  };
-
+  const [showPassword, setShowPassword] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     if (username.trim() === "" || password.trim() === "") {
       alert("Preencha todos os campos.");
       return;
     }
 
-    // Simulação de sucesso com formulário preenchido
     setShowSuccess(true);
+
     setTimeout(() => {
-      navigate("#");
+      navigate("/dashboard"); // Substitua pela sua rota real
     }, 3000);
   };
 
@@ -40,11 +41,12 @@ export default function Login() {
           <div className={S.boxForm}>
             <h3>Email</h3>
             <div className={S.inputPrincipal1}>
-              <i class="bi bi-envelope"></i>
+              <i className="bi bi-envelope"></i>
               <input
                 type="email"
                 placeholder="E-mail"
                 required
+                value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
@@ -54,45 +56,46 @@ export default function Login() {
             <div className={S.boxForm}>
               <h3>Senha</h3>
               <div className={S.inputPrincipal}>
-                <i class="bi bi-lock"></i>
+                <i className="bi bi-lock"></i>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="Senha"
                   required
+                  value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-
-                <div className={S.olhoSenha}>
-                  <i class="bi bi-eye"></i>
-                </div>
-                <div className={S.olhoSemSenha}>
-                  <i class="bi bi-eye-slash"></i>
+                <div className={S.olhoSenha} onClick={togglePasswordVisibility}>
+                  <i
+                    className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}
+                  ></i>
                 </div>
               </div>
             </div>
           </div>
-        </form>
-        <div className={S.boxLembrar}>
-          <a href="#">Esqueceu a senha?</a>
-        </div>
 
-        <div className={S.Concluir}>
-          <ul>
-            <li className={S.btnEntrar}>
-              <button className={S.entrar} type="submit" onClick={handleLogin}>
-                Entrar
-              </button>
-            </li>
-            <li className={S.btnCriar}>
-              <button className={S.criar} type="button">
-                <Link to="Registro" className={S.link}>
-                  Criar conta
-                </Link>
-              </button>
-            </li>
-          </ul>
-        </div>
+          <div className={S.boxLembrar}>
+            <a href="#">Esqueceu a senha?</a>
+          </div>
+
+          <div className={S.Concluir}>
+            <ul>
+              <li className={S.btnEntrar}>
+                <button className={S.entrar} type="submit">
+                  Entrar
+                </button>
+              </li>
+              <li className={S.btnCriar}>
+                <button className={S.criar} type="button">
+                  <Link to="Registro" className={S.link}>
+                    Criar conta
+                  </Link>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </form>
       </div>
+
       {showSuccess && <LoginAprovado />}
     </div>
   );

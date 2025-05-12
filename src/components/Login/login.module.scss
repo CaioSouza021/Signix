@@ -224,3 +224,37 @@ ul li .criar .link {
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
   }
 }
+
+// RESPONSIVO PARA MOBILE
+
+@media screen and (max-width: 900px) {
+  //  titulo
+  .boxConteudo {
+    width: 80%;
+    margin-top: 5px;
+  }
+
+  form .titulo {
+    margin-top: 5px;
+  }
+  form .titulo h1 {
+    margin-top: 5px;
+    font-size: 3rem;
+  }
+
+  .boxForm h3 {
+    font-size: 0.8rem;
+  }
+
+  .boxForm i {
+    font-size: 15px;
+  }
+
+  .inputPrincipal1,
+  .inputPrincipal {
+    height: 70%;
+    width: 100%;
+    gap: 20px;
+    padding: 5px;
+  }
+}

@@ -5,12 +5,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import S from "./login.module.scss";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
+  //armazenar o nome de usuário, senha, visibilidade da senha e exibição da mensagem de sucesso
+  const [username, setUsername] = useState(""); //Armazena o nome de usuário
+  const [password, setPassword] = useState(""); // Armazena a senha
+  const [showPassword, setShowPassword] = useState(false); //Controla se a senha será exibida ou não
+  const [showSuccess, setShowSuccess] = useState(false); //Controla se a mensagem de sucesso será exibida
   const navigate = useNavigate();
 
+  // Função para alternar a visibilidade da senha
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -18,15 +20,17 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Verifica se os campos estão preenchidos
     if (username.trim() === "" || password.trim() === "") {
       alert("Preencha todos os campos.");
       return;
     }
 
+    // Exibe a mensagem de sucesso
     setShowSuccess(true);
 
     setTimeout(() => {
-      navigate("/dashboard"); // Substitua pela sua rota real
+      navigate("#");
     }, 3000);
   };
 
